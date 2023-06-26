@@ -5,4 +5,7 @@ import Footer from "./Footer";
 import FooterLinks from "./Footer/FooterLinks";
 import FooterCopyright from "./Footer/FooterCopyright";
 import FooterLogo from "./Footer/FooterLogo";
-export { Hero, CustomButton, Navbar, Footer, FooterLinks, FooterCopyright, FooterLogo };
+import SearchBar from "./SearchBar";
+import CustomerFilter from './CustomerFilter'
+import SearchManufacturer from "./SearchManufacturer";
+export { Hero, CustomButton, Navbar, Footer, FooterLinks, FooterCopyright, FooterLogo, SearchBar, CustomerFilter, SearchManufacturer};
