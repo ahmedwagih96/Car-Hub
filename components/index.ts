@@ -8,4 +8,6 @@ import FooterLogo from "./Footer/FooterLogo";
 import SearchBar from "./SearchBar";
 import CustomerFilter from './CustomerFilter'
 import SearchManufacturer from "./SearchManufacturer";
-export { Hero, CustomButton, Navbar, Footer, FooterLinks, FooterCopyright, FooterLogo, SearchBar, CustomerFilter, SearchManufacturer};
+import CarCard from "./CarCard";
+import CarDetails from "./CarDetails";
+export { Hero, CustomButton, Navbar, Footer, FooterLinks, FooterCopyright, FooterLogo, SearchBar, CustomerFilter, SearchManufacturer, CarCard, CarDetails};

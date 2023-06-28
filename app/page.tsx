@@ -1,6 +1,10 @@
-import { Hero, SearchBar, CustomerFilter } from "@/components";
-
-export default function Home() {
+import { Hero, SearchBar, CustomerFilter, CarCard } from "@/components";
+import { fetchCars } from "@/utils";
+import { dummyData } from "@/dummyData";
+export default async function Home() {
+  const isDummy = true;
+  const allCars = isDummy? dummyData: await fetchCars();
+  const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
   return (
     <main className='overflow-hidden'>
       <Hero/>
@@ -16,6 +20,17 @@ export default function Home() {
             <CustomerFilter title='year'/>
           </div>
         </div>
+
+        {!isDataEmpty ? (
+          <section>
+            <div className="home__cars-wrapper">
+              {allCars?.map(car=> <CarCard car={car}/>)}
+            </div>
+          </section>
+        ) : (<div className="home__error-container">
+          <h2 className="text-black text-xl font-bold">Oops, no results</h2>
+          <p>{allCars.message}</p>
+        </div>)}
       </div>
     </main>
   )
