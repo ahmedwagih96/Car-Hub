@@ -1,7 +1,7 @@
 import { dummyData } from "@/dummyData";
 import { CarProps, FilterProps } from "@/types";
-  const isDummy = true;
-  
+const isDummy = true;
+
 export async function fetchCars(filters: FilterProps) {
   const { manufacturer, year, model, limit, fuel } = filters;
   const headers = {
@@ -16,7 +16,7 @@ export async function fetchCars(filters: FilterProps) {
 
   const result = await response.json();
 
-  return isDummy? dummyData : result;
+  return isDummy ? dummyData : result;
 }
 
 export const calculateCarRent = (city_mpg: number, year: number) => {
@@ -51,3 +51,5 @@ export const generateCarImageUrl = (car: CarProps, angle?: string) => {
 
   return isDummy ? "/hero.png" : `${url}`;
 };
+
+
