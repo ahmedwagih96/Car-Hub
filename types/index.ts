@@ -1,5 +1,9 @@
 import { Dispatch, MouseEventHandler, SetStateAction } from "react";
 
+export interface HomeProps {
+  searchParams: FilterProps;
+}
+
 export interface CustomButtonProps {
   title: string;
   containerStyles?: string;
@@ -35,4 +39,12 @@ export interface CarDetailsProps {
   isOpen: boolean;
   closeModal: ()=> void;
   car: CarProps
+}
+
+export interface FilterProps{
+  manufacturer: string;
+  year: number;
+  fuel: string;
+  limit: number;
+  model: string
 }
