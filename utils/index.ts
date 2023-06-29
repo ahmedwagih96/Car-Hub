@@ -12,11 +12,11 @@ export async function fetchCars(filters: FilterProps) {
     `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${manufacturer}&year=${year}&model=${model}&limit=${limit}&fuel_type=${fuel}`,
 
     { headers: headers }
-  );
+  )
+    .then((result) => result.json())
+    .catch(() => dummyData);
 
-  const result = await response.json();
-
-  return isDummy ? dummyData : result;
+  return isDummy ? dummyData : response;
 }
 
 export const calculateCarRent = (city_mpg: number, year: number) => {
@@ -51,5 +51,3 @@ export const generateCarImageUrl = (car: CarProps, angle?: string) => {
 
   return isDummy ? "/hero.png" : `${url}`;
 };
-
-
