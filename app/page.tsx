@@ -1,4 +1,4 @@
-import { Hero, CarCard, SearchFilters, CarResults } from "@/components";
+import { Hero, SearchFilters, CarResults } from "@/components";
 import { HomeProps } from "@/types";
 import { fetchCars } from "@/utils";
 export default async function Home({ searchParams }: HomeProps) {
@@ -18,7 +18,7 @@ export default async function Home({ searchParams }: HomeProps) {
           <p>Explore the cars you might like</p>
         </div>
         <SearchFilters />
-        <CarResults allCars={allCars} />
+        <CarResults allCars={allCars} searchParams = {searchParams}/>
       </div>
     </main>
   );

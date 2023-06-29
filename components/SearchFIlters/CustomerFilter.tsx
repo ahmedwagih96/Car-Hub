@@ -3,7 +3,7 @@ import { Fragment, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import Image from "next/image";
 import { CustomFilterProps, Option } from "@/types";
-import useFilterSearch from "@/hooks/useFilterSearch";
+import useFilterSearch from "@/hooks/useUpdateParams";
 
 function CustomerFilter({ title, options }: CustomFilterProps) {
   const [selected, setSelected] = useState<Option>(options[0]);

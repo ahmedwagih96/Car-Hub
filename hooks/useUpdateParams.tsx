@@ -1,6 +1,6 @@
 import { useRouter } from "next/navigation";
 
-function useFilterSearch() {
+function useUpdateParams() {
   const router = useRouter();
 
   // UPDATE SEARCH BAR
@@ -47,4 +47,4 @@ function useFilterSearch() {
   return { updateSearchBar, updateCustomFilter };
 }
 
-export default useFilterSearch;
+export default useUpdateParams;

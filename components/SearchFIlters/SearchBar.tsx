@@ -2,7 +2,7 @@
 import { SearchManufacturer, SearchButton } from "@/components";
 import React, { useState } from "react";
 import Image from "next/image";
-import useFilterSearch from "@/hooks/useFilterSearch";
+import useFilterSearch from "@/hooks/useUpdateParams";
 
 
 function SearchBar() {

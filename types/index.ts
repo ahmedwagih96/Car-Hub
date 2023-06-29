@@ -35,6 +35,11 @@ transmission: string;
 year: number;
 }
 
+export interface CarResultsProps {
+  allCars: CarProps;
+  searchParams: FilterProps
+}
+
 export interface CarDetailsProps {
   isOpen: boolean;
   closeModal: ()=> void;
@@ -46,7 +51,7 @@ export interface FilterProps{
   year: number;
   fuel: string;
   limit: number;
-  model: string
+  model: string;
 }
 
 export interface Option { 
@@ -59,3 +64,7 @@ export interface CustomFilterProps{
   options: Option[]
 }  
 
+export interface ShowMoreProps{
+  pageNumber: number,
+  isNext: boolean
+}

@@ -1,7 +1,7 @@
-import { CarCard } from "@/components";
-import { CarProps } from "@/types";
+import { CarCard, ShowMore } from "@/components";
+import { CarResultsProps } from "@/types";
 
-async function CarResults({allCars}: {allCars: CarProps}) {
+function CarResults({allCars, searchParams}: CarResultsProps) {
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
 
   return (
@@ -13,6 +13,10 @@ async function CarResults({allCars}: {allCars: CarProps}) {
               <CarCard car={car} />
             ))}
           </div>
+          <ShowMore 
+            pageNumber= {(searchParams.limit || 10) /10}
+            isNext={(searchParams.limit || 10) > allCars.length}
+          />
         </section>
       ) : (
         <div className="home__error-container">

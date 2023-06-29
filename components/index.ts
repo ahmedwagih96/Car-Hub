@@ -13,6 +13,7 @@ import CarDetails from "./CarResults/CarDetails";
 import SearchFilters from "./SearchFIlters";
 import CarResults from "./CarResults";
 import SearchButton from "./SearchFIlters/SearchButton";
+import ShowMore from "./CarResults/ShowMore";
 export {
   Hero,
   CustomButton,
@@ -28,5 +29,6 @@ export {
   CarDetails,
   SearchFilters,
   CarResults,
-  SearchButton
+  SearchButton,
+  ShowMore
 };
