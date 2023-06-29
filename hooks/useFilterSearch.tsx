@@ -3,32 +3,48 @@ import { useRouter } from "next/navigation";
 function useFilterSearch() {
   const router = useRouter();
 
-  const updateSearchParams = (model: string, manufacturer: string) => {
+  // UPDATE SEARCH BAR
+  const updateSearchBar = (model: string, manufacturer: string) => {
+    let searchParams = new URLSearchParams(window.location.search);
+    // If the user did not provide a model and a manufacturer
     if (manufacturer.trim() === "" && model.trim() === "") {
       return alert("Please provide some input");
     }
 
-    const searchParams = new URLSearchParams(window.location.search);
+    // Set the search parameter
+    searchParams = setSearchParam("model", model, searchParams)
+    searchParams = setSearchParam("manufacturer", manufacturer, searchParams)
+    
+    // Update the Search
+    updateSearch(searchParams)
+  };
 
-    if (model) {
-      searchParams.set("model", model);
+  // UPDATE CUSTOM FILTER
+  const updateCustomFilter = (title: string, value: string) => {
+    let searchParams = new URLSearchParams(window.location.search);
+    // Set the search parameter
+    searchParams = setSearchParam(title, value, searchParams)
+    // Update the Search
+    updateSearch(searchParams)
+  };
+
+  const setSearchParam = (title:string, value:string, searchParams:URLSearchParams)=>{
+    if (value) {
+      searchParams.set(title, value);
     } else {
-      searchParams.delete("model");
+      searchParams.delete(title);
     }
-
-    if (manufacturer) {
-      searchParams.set("manufacturer", manufacturer);
-    } else {
-      searchParams.delete("manufacturer");
-    }
-
+    return searchParams
+  }
+  const updateSearch = (searchParams: URLSearchParams) => {
     const newPathname = `${
       window.location.pathname
     }?${searchParams.toString()}`;
 
     router.push(newPathname);
   };
-  return updateSearchParams
-  }
+
+  return { updateSearchBar, updateCustomFilter };
+}
 
 export default useFilterSearch;

@@ -8,10 +8,10 @@ import useFilterSearch from "@/hooks/useFilterSearch";
 function SearchBar() {
   const [manufacturer, setManufacturer] = useState<string>("");
   const [model, setModel] = useState<string>("");
-  const updateSearchParams = useFilterSearch();
+  const {updateSearchBar} = useFilterSearch();
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase());
+    updateSearchBar(model.toLowerCase(), manufacturer.toLowerCase());
   };
 
   return (
