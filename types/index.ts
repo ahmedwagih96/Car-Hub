@@ -51,7 +51,6 @@ export interface FilterProps{
   year: number;
   fuel: string;
   limit: number;
-  model: string;
 }
 
 export interface Option { 
@@ -61,7 +60,7 @@ export interface Option {
 
 export interface CustomFilterProps{
   title: string;
-  options: Option[]
+  options: Option[] 
 }  
 
 export interface ShowMoreProps{

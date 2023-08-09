@@ -15,7 +15,13 @@ function Hero() {
       </div>
       <div className="hero__image-container">
         <div className="hero__image">
-          <Image src="/hero.png" alt="hero" fill className="object-contain" />
+          <Image
+            src="/hero.png"
+            alt="hero"
+            fill
+            className="object-contain"
+            sizes="(min-width: 1560px) 775px, (min-width: 1280px) calc(36.92vw + 206px), 90vw"
+          />
         </div>
         <div className="hero__image-overlay"></div>
       </div>

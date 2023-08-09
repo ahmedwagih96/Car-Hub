@@ -1,13 +1,13 @@
 import { Hero, SearchFilters, CarResults } from "@/components";
 import { HomeProps } from "@/types";
 import { fetchCars } from "@/utils";
+
 export default async function Home({ searchParams }: HomeProps) {
   const allCars = await fetchCars({
     manufacturer: searchParams.manufacturer || "",
     year: searchParams.year || 2022,
     fuel: searchParams.fuel || "",
     limit: searchParams.limit || 10,
-    model: searchParams.model || "",
   });
   return (
     <main className="overflow-hidden">
@@ -18,7 +18,7 @@ export default async function Home({ searchParams }: HomeProps) {
           <p>Explore the cars you might like</p>
         </div>
         <SearchFilters />
-        <CarResults allCars={allCars} searchParams = {searchParams}/>
+        <CarResults allCars={allCars} searchParams={searchParams} />
       </div>
     </main>
   );

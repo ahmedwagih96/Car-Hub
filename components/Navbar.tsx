@@ -28,7 +28,7 @@ function Navbar() {
           handleClick={handleScroll}
           title="Explore Cars"
           btnType="button"
-          containerStyles="text-white lg:text-primary-blue rounded-full bg-primary-blue xl:bg-white min-w-[-130px]"
+          containerStyles="text-white xl:text-primary-blue rounded-full bg-primary-blue xl:bg-white min-w-[-130px]"
         />
       </nav>
     </header>

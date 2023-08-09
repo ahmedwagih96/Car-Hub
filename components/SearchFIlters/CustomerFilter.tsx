@@ -7,15 +7,14 @@ import useFilterSearch from "@/hooks/useUpdateParams";
 
 function CustomerFilter({ title, options }: CustomFilterProps) {
   const [selected, setSelected] = useState<Option>(options[0]);
-  const {updateCustomFilter} = useFilterSearch()
+  const { updateCustomFilter } = useFilterSearch();
   return (
     <div className="w-fit">
       <Listbox
         value={selected}
         onChange={(e) => {
-          console.log(e)
           setSelected(e); // Update the selected option in state
-          updateCustomFilter(title, e.value) // Update the URL search parameters and navigate to the new URL
+          updateCustomFilter(title, e.value); // Update the URL search parameters and navigate to the new URL
         }}
       >
         <div className="relative w-fit z-10">

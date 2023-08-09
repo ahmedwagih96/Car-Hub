@@ -1,13 +1,11 @@
-import { SearchBar, CustomerFilter } from "@/components";
-import { fuels, yearsOfProduction } from "@/constants";
+import { CustomerFilter } from "@/components";
+import { fuels, yearsOfProduction, manufacturers } from "@/constants";
 
-type Props = {};
-
-function SearchFilters({}: Props) {
+function SearchFilters() {
   return (
     <div className="home__filters">
-      <SearchBar />
       <div className="home__filter-container">
+        <CustomerFilter title="manufacturer" options={manufacturers} />
         <CustomerFilter title="fuel" options={fuels} />
         <CustomerFilter title="year" options={yearsOfProduction} />
       </div>
