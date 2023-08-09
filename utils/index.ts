@@ -1,5 +1,5 @@
 import { dummyData } from "@/dummyData";
-import {FilterProps } from "@/types";
+import { FilterProps } from "@/types";
 const isDummy = false;
 
 export async function fetchCars(filters: FilterProps) {
@@ -14,7 +14,7 @@ export async function fetchCars(filters: FilterProps) {
     { headers: headers }
   )
     .then((result) => result.json())
-    .catch(() => dummyData);
+    .catch((error) => console.log(error));
 
   return isDummy ? dummyData : response;
 }
