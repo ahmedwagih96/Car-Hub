@@ -13,6 +13,9 @@ import CarResults from "./CarResults";
 import CarCard from "./CarResults/CarCard";
 import CarDetails from "./CarResults/CarDetails";
 import ShowMore from "./CarResults/ShowMore";
+// SKELETONS 
+import Skeletons from './Skeletons'
+import Skeleton from './Skeletons/Skeleton'
 // REUSABLE COMPONENTS 
 import CustomButton from "./CustomButton";
 export {
@@ -28,5 +31,7 @@ export {
   CarDetails,
   SearchFilters,
   CarResults,
-  ShowMore
+  ShowMore,
+  Skeleton,
+  Skeletons
 };

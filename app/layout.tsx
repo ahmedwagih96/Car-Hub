@@ -1,6 +1,6 @@
 import { Footer, Navbar } from "@/components";
 import "./globals.css";
-
+import { Providers } from "@/redux/provider";
 export const metadata = {
   title: "Car Hub",
   description: "Discover the best cars in the world",
@@ -15,7 +15,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="relative" suppressHydrationWarning={true}>
         <Navbar />
-        {children}
+        <Providers>{children}</Providers>
         <Footer />
       </body>
     </html>

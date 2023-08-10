@@ -1,20 +1,24 @@
 "use client";
+import Image from "next/image";
+// headlessUI
 import { Fragment, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
-import Image from "next/image";
+// Redux 
+import { useAppDispatch } from "@/redux/hooks";
+import { setFilter } from "@/redux/features/filtersSlice";
+// Types
 import { CustomFilterProps, Option } from "@/types";
-import useFilterSearch from "@/hooks/useUpdateParams";
 
-function CustomerFilter({ title, options }: CustomFilterProps) {
+function CustomerFilter<T>({ title, options }: CustomFilterProps<T>) {
   const [selected, setSelected] = useState<Option>(options[0]);
-  const { updateCustomFilter } = useFilterSearch();
+  const dispatch = useAppDispatch();
   return (
     <div className="w-fit">
       <Listbox
         value={selected}
         onChange={(e) => {
-          setSelected(e); // Update the selected option in state
-          updateCustomFilter(title, e.value); // Update the URL search parameters and navigate to the new URL
+          setSelected(e); 
+          dispatch(setFilter({title, value: e.value})); // Update the URL search parameters and navigate to the new URL
         }}
       >
         <div className="relative w-fit z-10">

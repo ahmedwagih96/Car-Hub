@@ -27,6 +27,14 @@ module.exports = {
       backgroundImage: {
         'pattern': "url('/pattern.png')",
         'hero-bg': "url('/hero-bg.png')"
+      },
+      animation: {
+        skeletons : 'skeleton 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+      },
+      keyframes: {
+        skeleton: {
+          '50%' : "opacity: 0.5;"
+        }
       }
     },
   },

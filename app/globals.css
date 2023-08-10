@@ -11,6 +11,17 @@
   font-family: "Manrope", sans-serif;
 }
 
+/* animation */
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.skeleton-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
 /* START: General styles */
 .max-width {
   @apply max-w-[1440px] mx-auto;
@@ -89,7 +100,11 @@
   @apply mt-16 flex justify-center items-center flex-col gap-2;
 }
 /* END: Home styles */
-
+/* START SKELETON  */
+.skeleton-card {
+  @apply flex flex-col p-6 justify-center items-start  bg-blue-100 hover:shadow-md rounded-3xl
+}
+/* END SKELETON  */
 /* START: Car Card styles */
 .car-card {
   @apply flex flex-col p-6 justify-center items-start text-black-100 bg-primary-blue-100 hover:bg-white hover:shadow-md rounded-3xl;

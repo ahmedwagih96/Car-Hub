@@ -1,69 +1,65 @@
+import { ActionCreatorWithPayload } from "@reduxjs/toolkit";
 import { Dispatch, MouseEventHandler, SetStateAction } from "react";
-
-export interface HomeProps {
-  searchParams: FilterProps;
-}
 
 export interface CustomButtonProps {
   title: string;
   containerStyles?: string;
   btnType?: "button" | "submit";
   handleClick?: MouseEventHandler<HTMLButtonElement>;
-  textStyles? :string;
-  rightIcon? :string;
-  isDisabled? :boolean
-
+  textStyles?: string;
+  rightIcon?: string;
+  isDisabled?: boolean;
 }
 
-export interface SearchManufacturerProps{
+export interface SearchManufacturerProps {
   manufacturer: string;
-  setManufacturer: Dispatch<SetStateAction<string>>
+  setManufacturer: Dispatch<SetStateAction<string>>;
 }
 
 export interface CarProps {
   city_mpg: number;
-class: string;
-combination_mpg: number;
-cylinders: number;
-displacement: number;
-drive: string;
-fuel_type:string;
-highway_mpg: number;
-make: string;
-model:string;
-transmission: string;
-year: number;
-}
-
-export interface CarResultsProps {
-  allCars: CarProps;
-  searchParams: FilterProps
+  class: string;
+  combination_mpg: number;
+  cylinders: number;
+  displacement: number;
+  drive: string;
+  fuel_type: string;
+  highway_mpg: number;
+  make: string;
+  model: string;
+  transmission: string;
+  year: number;
 }
 
 export interface CarDetailsProps {
   isOpen: boolean;
-  closeModal: ()=> void;
-  car: CarProps
+  closeModal: () => void;
+  car: CarProps;
 }
 
-export interface FilterProps{
+export interface FilterProps {
   manufacturer: string;
   year: number;
   fuel: string;
   limit: number;
 }
 
-export interface Option { 
+export interface Option {
   title: string;
-  value: string
+  value: string;
 }
 
-export interface CustomFilterProps{
+export interface CustomFilterProps<T> {
   title: string;
-  options: Option[] 
-}  
+  options: Option[];
+}
 
-export interface ShowMoreProps{
-  pageNumber: number,
-  isNext: boolean
+export interface ShowMoreProps {
+  pageNumber: number;
+  isNext: boolean;
+}
+
+export interface PayloadActionType<T>{
+  filter: string,
+  value: T
 }

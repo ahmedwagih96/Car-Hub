@@ -1,7 +1,8 @@
+"use client"
 import { CarCard, ShowMore } from "@/components";
-import { CarResultsProps } from "@/types";
-
-function CarResults({ allCars, searchParams }: CarResultsProps) {
+import { useAppSelector } from "@/redux/hooks";
+function CarResults() {
+  const { limit, allCars } = useAppSelector((state) => state.filtersReducer);
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
 
   return (
@@ -9,13 +10,13 @@ function CarResults({ allCars, searchParams }: CarResultsProps) {
       {!isDataEmpty ? (
         <section>
           <div className="home__cars-wrapper">
-            {allCars?.map((car) => (
-              <CarCard car={car} />
+            {allCars?.map((car, ind) => (
+              <CarCard car={car} key={ind} />
             ))}
           </div>
           <ShowMore
-            pageNumber={(searchParams.limit || 10) / 10}
-            isNext={(searchParams.limit || 10) > allCars.length}
+            pageNumber={(limit || 10) / 10}
+            isNext={(limit || 10) > allCars.length}
           />
         </section>
       ) : (

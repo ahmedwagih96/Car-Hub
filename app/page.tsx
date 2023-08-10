@@ -1,14 +1,9 @@
-import { Hero, SearchFilters, CarResults } from "@/components";
-import { HomeProps } from "@/types";
-import { fetchCars } from "@/utils";
-
-export default async function Home({ searchParams }: HomeProps) {
-  const allCars = await fetchCars({
-    manufacturer: searchParams.manufacturer || "",
-    year: searchParams.year || 2022,
-    fuel: searchParams.fuel || "",
-    limit: searchParams.limit || 10,
-  });
+"use client";
+import { Hero, SearchFilters, CarResults, Skeletons } from "@/components";
+// Custom Hook
+import useFetchCars from "@/hooks/useFetchCars";
+export default function Home() {
+  const loading = useFetchCars();
   return (
     <main className="overflow-hidden">
       <Hero />
@@ -18,7 +13,7 @@ export default async function Home({ searchParams }: HomeProps) {
           <p>Explore the cars you might like</p>
         </div>
         <SearchFilters />
-        <CarResults allCars={allCars} searchParams={searchParams} />
+        {loading ? <Skeletons/> : <CarResults />}
       </div>
     </main>
   );
