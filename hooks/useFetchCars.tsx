@@ -9,7 +9,7 @@ function useFetchCars() {
     (state) => state.filtersReducer
   );
 
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const getCars = async () => {
     setLoading(true);
